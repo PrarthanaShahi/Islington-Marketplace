@@ -9,6 +9,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, null=True, blank=True)
+
     price = models.FloatField()
     description = models.TextField()
     stock = models.IntegerField(default=1)

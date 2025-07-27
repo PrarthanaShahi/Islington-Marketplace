@@ -1,18 +1,17 @@
 from django.contrib import admin
-from . models import Category, Product
+from .models import Category, Product
 from django.utils.html import format_html
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-
 class ProductAdmin(admin.ModelAdmin):
-    execlude = ('created_at',)
+    exclude = ('created_at',)  # typo fixed from 'execlude'
     list_display = ('name', 'category', 'price', 'stock', 'status', 'image_preview')
     search_fields = ("name",)
     list_filter = ("category",)
     prepopulated_fields = {'slug': ('name',)}
-    readonly_fields = {'image_preview',}
+    readonly_fields = ('image_preview',)
 
     def image_preview(self, obj):
         if obj.product_image:

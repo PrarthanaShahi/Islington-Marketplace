@@ -13,6 +13,7 @@ class Blog(models.Model):
     status = models.BooleanField(default=0)
     category = models.ForeignKey(BlogCategory, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
+    blog_image = models.ImageField(upload_to='photos/blogs', blank=True, null=True)
 
     def __str__(self):
         return self.title
