@@ -4,7 +4,20 @@
 <div class="row">
   {% for product in products %}
     <div class="col-md-4 mb-3">
-      <div class="card">
+      <div class="card h-100">
+        {% if product.product_image %}
+        <img
+          src="{{ product.product_image.url }}"
+          class="card-img-top"
+          alt="{{ product.name }}"
+        />
+        {% else %}
+        <img
+          src="{% static 'images/default.jpg' %}"
+          class="card-img-top"
+          alt="No image available"
+        />
+        {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">Rs. {{ product.price }}</p>
