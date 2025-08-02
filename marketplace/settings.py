@@ -149,5 +149,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://islington-marketplace.onrender.com'
+    'https://islington-marketplace.onrender.com',
 ]
