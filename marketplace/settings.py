@@ -28,7 +28,8 @@ SECRET_KEY = "django-insecure-&v@t49_c=rt-vhz%r(y%j@u2&e87aj(8!z%2nej4pjpmh_=(s#
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'summerclass-crjx.onrender.com',
+    # 'summerclass-crjx.onrender.com',
+    'islington-marketplace-1.onrender.com',
     'prarthanashahi.com.np',
     'www.prarthanashahi.com.np',
     '127.0.0.1',
