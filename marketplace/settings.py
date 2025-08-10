@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'summerclass-crjx.onrender.com',
+    'prarthanashahi.com.np',
+    'www.prarthanashahi.com.np',
     '127.0.0.1',
     'localhost',
 ]
@@ -149,5 +151,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://islington-marketplace.onrender.com',
+    # 'https://islington-marketplace.onrender.com',
+    'https://islington-marketplace-1.onrender.com',
+    'https://prarthanashahi.com.np',
+    'https://www.prarthanashahi.com.np',
 ]
