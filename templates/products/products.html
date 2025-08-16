@@ -6,7 +6,8 @@
   <div class="container">
     <h2 class="title-page">Our Store</h2>
   </div>
-  </section>
+</section>
+
 <section class="section-content padding-y">
   <div class="container">
     <div class="row">
@@ -14,12 +15,7 @@
         <div class="card">
           <article class="filter-group">
             <header class="card-header">
-              <a
-                href="#"
-                data-toggle="collapse"
-                data-target="#collapse_1"
-                aria-expanded="true"
-                class="">
+              <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Categories</h6>
               </a>
@@ -30,23 +26,18 @@
                   {% for category in links %}
                   <li>
                     <a href="{{ category.get_url }}">
-                      {{ category.category_name }}
+                      {{ category.name }}
                     </a>
                   </li>
                   {% endfor %}
                 </ul>
               </div>
-              </div>
+            </div>
           </article>
+
           <article class="filter-group">
             <header class="card-header">
-              <a
-                href="#"
-                data-toggle="collapse"
-                data-target="#collapse_4"
-                aria-expanded="true"
-                class=""
-              >
+              <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Sizes</h6>
               </a>
@@ -70,17 +61,12 @@
                   <span class="btn btn-light"> XXL </span>
                 </label>
               </div>
-              </div>
+            </div>
           </article>
+
           <article class="filter-group">
             <header class="card-header">
-              <a
-                href="#"
-                data-toggle="collapse"
-                data-target="#collapse_3"
-                aria-expanded="true"
-                class=""
-              >
+              <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Price range</h6>
               </a>
@@ -115,30 +101,32 @@
                 </div>
                 <button class="btn btn-block btn-primary">Apply</button>
               </div>
-              </div>
+            </div>
           </article>
-          </div>
-        </aside>
+        </div>
+      </aside>
+
       <main class="col-md-9">
         <header class="border-bottom mb-4 pb-3">
           <div class="form-inline">
             <span class="mr-md-auto">
-                {% if product_count == 1 %}
-                    1 Item found
-                {% else %}
-                    {{ product_count }} Items found
-                {% endif %}
+              {% if product_count == 1 %}
+                1 Item found
+              {% else %}
+                {{ product_count }} Items found
+              {% endif %}
             </span>
           </div>
         </header>
+
         <div class="row">
           {% for product in products %}
           <div class="col-md-4">
             <figure class="card card-product-grid">
               <div class="img-wrap">
-                {% if product.images %}
+                {% if product.product_image %}
                   <a href="{{ product.get_url }}">
-                    <img src="{{ product.images.url }}" />
+                    <img src="{{ product.product_image.url }}" />
                   </a>
                 {% else %}
                   <img src="{% static 'images/default_image.png' %}" />
@@ -147,7 +135,7 @@
               <figcaption class="info-wrap">
                 <div class="fix-height">
                   <a href="{{ product.get_url }}" class="title">
-                    {{ product.product_name }}
+                    {{ product.name }}
                   </a>
                   <div class="price-wrap mt-2">
                     <span class="price">Rs. {{ product.price }}</span>
@@ -165,8 +153,9 @@
           </div>
           {% endfor %}
         </div>
-        </main>
-      </div>
+      </main>
+    </div>
   </div>
-  </section>
+</section>
+
 {% endblock %}

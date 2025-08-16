@@ -3,10 +3,12 @@ from django.dispatch import receiver
 from .models import Product
 from utils.media_cleanup import delete_old_file_on_update, delete_file_on_delete
 
+# This function name is fine
 @receiver(pre_save, sender=Product)
 def product_image_update_cleanup(sender, instance, **kwargs):
     delete_old_file_on_update(instance, Product, 'product_image')
 
+# This function needs a different name
 @receiver(post_delete, sender=Product)
-def product_image_update_cleanup(sender, instance, **kwargs):
+def product_image_delete_cleanup(sender, instance, **kwargs):
     delete_file_on_delete(instance, 'product_image')

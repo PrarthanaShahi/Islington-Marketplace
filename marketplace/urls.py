@@ -13,7 +13,7 @@ urlpatterns = [
     # path('login/', views.user_login, name='user_login'),
     # path('register/', views.user_register, name='user_register'),
     # path('dashboard/', views.user_dashboard, name='user_dashboard'),
-    # path('cart/', include('carts.urls')),
+    path('cart/', include('carts.urls')),
     # path('checkout/', views.checkout, name='checkout'),
     # path('place-order/', views.place_order, name='place_order'),
     # path('order-complete/', views.order_complete, name='order_complete'),

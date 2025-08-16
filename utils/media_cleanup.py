@@ -11,6 +11,7 @@ def delete_old_file_on_update(instance, model, field_name):
     old_file = getattr(old_instance, field_name)
     new_file = getattr(instance, field_name)
     if old_file and old_file != new_file:
+        # Check if the file path exists on disk before attempting to remove it
         if os.path.isfile(old_file.path):
             os.remove(old_file.path)
 
@@ -18,5 +19,6 @@ def delete_file_on_delete(instance, field_name):
     """Delete the file from disk when the instance is deleted"""
     file_field = getattr(instance, field_name)
     
+    # Check if the file field exists and if the file path exists on disk
     if file_field and os.path.isfile(file_field.path):
         os.remove(file_field.path)

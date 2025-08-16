@@ -33,19 +33,21 @@
       <main class="col-md-9">
         <article class="card">
           <header class="card-header">
-            <strong class="d-inline-block mr-3">Order ID: 6123456789</strong>
-            <span>Order Date: 16 December 2018</span>
+            <!-- Displaying dynamic order ID and date -->
+            <strong class="d-inline-block mr-3">Order ID: {{ order.order_number }}</strong>
+            <span>Order Date: {{ order.created_at|date:"d F Y" }}</span>
           </header>
           <div class="card-body">
             <div class="row">
               <div class="col-md-8">
                 <h6 class="text-muted">Delivery to</h6>
                 <p>
-                  Michael Jackson <br />
-                  Phone +1234567890 Email: myname@pixsellz.com <br />
-                  Location: Home number, Building name, Street 123, Tashkent,
-                  UZB <br />
-                  P.O. Box: 100123
+                  <!-- Displaying dynamic user and address information -->
+                  {{ order.full_name }} <br />
+                  Phone: {{ order.phone }} Email: {{ order.email }} <br />
+                  Location: {{ order.address_line_1 }}, {{ order.address_line_2 }} <br />
+                  {{ order.city }}, {{ order.state }}, {{ order.country }} <br />
+                  P.O. Box: {{ order.zip_code }}
                 </p>
               </div>
               <div class="col-md-4">
@@ -55,9 +57,10 @@
                   Visa **** 4216
                 </span>
                 <p>
-                  Subtotal: $356 <br />
-                  Shipping fee: $56 <br />
-                  <span class="b">Total: $456 </span>
+                  <!-- Displaying dynamic pricing information -->
+                  Subtotal: ${{ order.sub_total }} <br />
+                  Tax: ${{ order.tax }} <br />
+                  <span class="b">Total: ${{ order.grand_total }} </span>
                 </p>
               </div>
             </div>
@@ -66,66 +69,41 @@
           <!-- card-body .// -->
           <div class="table-responsive">
             <table class="table table-hover">
-              <tr>
-                <td width="65">
-                  <img
-                    src="/static/images/items/1.jpg"
-                    class="img-xs border"
-                  />
-                </td>
-                <td>
-                  <p class="title mb-0">Product name goes here</p>
-                  <var class="price text-muted">USD 145</var>
-                </td>
-                <td>
-                  Seller <br />
-                  Nike clothing
-                </td>
-                <td width="250">
-                  <a href="#" class="btn btn-outline-primary">Track order</a>
-                  <a href="#" class="btn btn-light"> Details </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="/static/images/items/2.jpg"
-                    class="img-xs border"
-                  />
-                </td>
-                <td>
-                  <p class="title mb-0">Another name goes here</p>
-                  <var class="price text-muted">USD 15</var>
-                </td>
-                <td>
-                  Seller <br />
-                  ABC shop
-                </td>
-                <td>
-                  <a href="#" class="btn btn-outline-primary">Track order</a>
-                  <a href="#" class="btn btn-light"> Details </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="/static/images/items/3.jpg"
-                    class="img-xs border"
-                  />
-                </td>
-                <td>
-                  <p class="title mb-0">The name of the product goes here</p>
-                  <var class="price text-muted">USD 145</var>
-                </td>
-                <td>
-                  Seller <br />
-                  Wallmart
-                </td>
-                <td>
-                  <a href="#" class="btn btn-outline-primary">Track order</a>
-                  <a href="#" class="btn btn-light"> Details </a>
-                </td>
-              </tr>
+              <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Looping through all order items to display them dynamically -->
+                {% for item in order_items %}
+                <tr>
+                  <td width="65">
+                    <img
+                      src="{{ item.product.images.url }}"
+                      class="img-xs border"
+                      alt="{{ item.product.product_name }}"
+                    />
+                  </td>
+                  <td>
+                    <p class="title mb-0">{{ item.product.product_name }}</p>
+                    <var class="price text-muted">USD {{ item.product_price }}</var>
+                  </td>
+                  <td>
+                    {{ item.quantity }}
+                  </td>
+                  <td>
+                    <var class="price">USD {{ item.sub_total }}</var>
+                  </td>
+                  <td width="250">
+                    <a href="#" class="btn btn-outline-primary">Track order</a>
+                    <a href="#" class="btn btn-light"> Details </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
             </table>
           </div>
           <!-- table-responsive .end// -->
@@ -138,4 +116,3 @@
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
 {% endblock %}
- 

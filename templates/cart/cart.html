@@ -8,7 +8,7 @@
     <h2 class="text-center">Your Shopping Cart is Empty</h2>
     <br>
     <div class="text-center">
-      <a href="{% url 'store' %}" class="btn btn-primary">Continue Shopping</a>
+      <a href="{% url 'products' %}" class="btn btn-primary">Continue Shopping</a>
     </div>
     {% else %}
     <div class="row">
@@ -29,11 +29,11 @@
                 <td>
                   <figure class="itemside align-items-center">
                     <div class="aside">
-                      <img src="{{ cart_item.product.images.url }}" class="img-sm" />
+                      <img src="{{ cart_item.product.product_image.url }}" class="img-sm" />
                     </div>
                     <figcaption class="info">
                       <a href="{{ cart_item.product.get_url }}" class="title text-dark">
-                        {{ cart_item.product.product_name }}
+                        {{ cart_item.product.name }}
                       </a>
                       {% if cart_item.product.stock <= 0 %}
                         <p class="text-danger small mb-1">Out of stock</p>
@@ -107,7 +107,7 @@
             <a href="{% url 'checkout' %}" class="btn btn-primary btn-block">
               Checkout
             </a>
-            <a href="{% url 'store' %}" class="btn btn-light btn-block"
+            <a href="{% url 'products' %}" class="btn btn-light btn-block"
               >Continue Shopping</a
             >
           </div>

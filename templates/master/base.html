@@ -14,21 +14,17 @@
     <meta name="description" content="Islington MarketPlace">
     <meta name="keywords" content="Islington MarketPlace, Islington">
 
-    
-    <meta property="og:image" content="{{ MEDIA_URL }}photos/logos/logos.PNG"">
-    
-
-    
-    <link
-      href="{{ MEDIA_URL }}photos/favicons/favicons.ico"
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
-    
-
     <!-- Open Graph for social media -->
     <meta property="og:title" content="Islington MarketPlace">
     <meta property="og:description" content="Islington MarketPlace">
+    <meta property="og:image" content="{% static 'images/logos/logos.PNG' %}" />
+    
+    <!-- Favicon -->
+    <link
+      href="{% static 'images/favicons/favicons.ico' %}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
 
     <!-- jQuery -->
     <script
@@ -67,19 +63,21 @@
 
     <script type="text/javascript">
       /// some script
-
-      // jquery ready start
       $(document).ready(function () {
         // jQuery code
       });
-      // jquery end
     </script>
   </head>
   <body>
+    <!-- CSRF Token for security -->
+    {% csrf_token %}
+    
     {% include 'includes/navbar.html' %}
+    
     {% block content %}
-    {% comment %} Page Specific Content will go here {% endcomment %}
+    <!-- Page Specific Content will go here -->
     {% endblock %}
+    
     {% include 'includes/footer.html' %}
   </body>
 </html>
