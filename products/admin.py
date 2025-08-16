@@ -6,7 +6,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 class ProductAdmin(admin.ModelAdmin):
-    exclude = ('created_at',)  # typo fixed from 'execlude'
+    exclude = ('created_at',)  
     list_display = ('name', 'category', 'price', 'stock', 'status', 'image_preview')
     search_fields = ("name",)
     list_filter = ("category",)

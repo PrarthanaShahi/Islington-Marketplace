@@ -17,7 +17,6 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -50,7 +49,8 @@ INSTALLED_APPS = [
     "products.apps.ProductsConfig",
     "blogs.apps.BlogsConfig",
     "pages.apps.PagesConfig",
-    "sitesetting.apps.SitesettingConfig"
+    "sitesetting.apps.SitesettingConfig",
+    'carts.apps.CartsConfig',
 ]
 
 MIDDLEWARE = [
@@ -90,13 +90,13 @@ WSGI_APPLICATION = "marketplace.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+    # 'default': dj_database_url.config(
+    #     default=os.environ.get('DATABASE_URL')
+    # )
 }
 
 
@@ -136,20 +136,22 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIR = [
-    BASE_DIR / "static",
+# Use the correct variable name STATICFILES_DIRS (plural) and ensure it's a list.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 CSRF_TRUSTED_ORIGINS = [
     # 'https://islington-marketplace.onrender.com',

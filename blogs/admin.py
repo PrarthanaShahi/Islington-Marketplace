@@ -8,12 +8,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class BlogAdmin(admin.ModelAdmin):
-    # FIX 1: Corrected typo from 'execlude' to 'exclude'
     exclude = ('created_at',)
-    
-    # FIX 2: Added 'image_preview' to the list_display tuple
     list_display = ('title', 'category', 'description', 'status', 'image_preview') 
-    
     search_fields = ("title", "description")
     list_filter = ("category", "status")
     readonly_fields = ('image_preview',)
