@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import Category, Product
 from django.utils.html import format_html
 
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+# class CategoryAdmin(admin.ModelAdmin):
+#     list_display = ('name',)
 
 class ProductAdmin(admin.ModelAdmin):
     exclude = ('created_at',)  
@@ -19,5 +19,5 @@ class ProductAdmin(admin.ModelAdmin):
         return "No image"
     image_preview.short_description = 'Image'
 
-admin.site.register(Category, CategoryAdmin)
+# admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)

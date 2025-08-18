@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     "blogs.apps.BlogsConfig",
     "pages.apps.PagesConfig",
     "sitesetting.apps.SitesettingConfig",
-    'carts.apps.CartsConfig',
+    "carts.apps.CartsConfig",
+    "category.apps.CategoryConfig",
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,7 @@ TEMPLATES = [
                 "pages.context_processors.pages_links",
                 "sitesetting.context_processors.site_settings",
                 "carts.context_processors.counter",
+                "products.context_processors.menu_links",
             ],
         },
     },

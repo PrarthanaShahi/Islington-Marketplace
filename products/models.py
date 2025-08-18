@@ -1,14 +1,16 @@
 from django.db import models
 from django.utils import timezone
-# from django.urls import reverse
+from category.models import Category
+from django.urls import reverse
 
-class Category(models.Model):
-    name = models.CharField(max_length=255)
-    # Add the status field to the Category model
-    status = models.BooleanField(default=True)
+# class Category(models.Model):
+#     name = models.CharField(max_length=255)
+#     # Add the status field to the Category model
+#     status = models.BooleanField(default=True)
+#     slug = models.SlugField(unique=True, null=True, blank=True)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -22,8 +24,8 @@ class Product(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     product_image = models.ImageField(upload_to='photos/products', blank=True)
 
-    # def get_url(self):
-    #     return reverse('product_detail', args=[self.category.slug, self.slug])
+    def get_url(self):
+        return reverse('product_detail', args=[self.category.slug, self.slug])
     
     def __str__(self):
         return self.name

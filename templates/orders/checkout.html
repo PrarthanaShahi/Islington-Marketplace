@@ -17,7 +17,7 @@
         <div class="col-md-6">
             <figure class="itemside mb-4">
                 <!-- Use the correct image URL from the product object -->
-                <div class="aside"><img src="{{ cart_item.product.images.url }}" class="border img-sm" alt="{{ cart_item.product.product_name }}"></div>
+                <div class="aside"><img src="{{ cart_item.product.product_image.url }}" class="border img-sm" alt="{{ cart_item.product.name }}"></div>
                 <figcaption class="info">
                     <p>{{ cart_item.product.product_name }}</p>
                     <!-- Display the correct quantity and total price for the item -->

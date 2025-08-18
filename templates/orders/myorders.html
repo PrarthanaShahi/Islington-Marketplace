@@ -82,14 +82,14 @@
                 <tr>
                   <td width="65">
                     <img
-                      src="{{ item.product.images.url }}"
+                      src="{{ item.product.product_image.url }}"
                       class="img-xs border"
-                      alt="{{ item.product.product_name }}"
+                      alt="{{ item.product.name }}"
                     />
                   </td>
                   <td>
-                    <p class="title mb-0">{{ item.product.product_name }}</p>
-                    <var class="price text-muted">USD {{ item.product_price }}</var>
+                    <p class="title mb-0">{{ item.product.name }}</p>
+                    <var class="price text-muted">USD {{ item.product.price }}</var>
                   </td>
                   <td>
                     {{ item.quantity }}

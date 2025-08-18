@@ -1,0 +1,40 @@
+[
+{
+  "model": "blogs.blogcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Travel"
+  }
+},
+{
+  "model": "blogs.blogcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Food and Drinks"
+  }
+},
+{
+  "model": "blogs.blog",
+  "pk": 4,
+  "fields": {
+    "title": "Exploring Ancient Ruins in Patan Durbar Square",
+    "description": "Join me on a fascinating journey through the historic Patan Durbar Square, a UNESCO World Heritage site. Discover the intricate carvings, ancient temples, and rich cultural heritage of this magnificent location. I'll share my favorite spots, tips for navigating the area, and a glimpse into the local artistry and history that makes this place truly special. Don't miss the chance to witness the living history of the Malla kings!",
+    "status": true,
+    "category": 4,
+    "created_at": "2025-07-27T04:55:46Z",
+    "blog_image": "photos/blogs/patan-durbar-square-tour.webp"
+  }
+},
+{
+  "model": "blogs.blog",
+  "pk": 5,
+  "fields": {
+    "title": "A Taste of Nepal: Authentic Dal Bhat Recipe Revealed",
+    "description": "Embark on a culinary adventure from the heart of Kathmandu with this traditional Nepali Dal Bhat recipe. This wholesome and comforting meal, a staple in every Nepali household, features aromatic rice, a hearty lentil soup (dal), and a medley of flavorful curries (tarkari). Learn the secrets to preparing each component to perfection, ensuring an authentic taste experience right in your own kitchen. Perfect for a cozy evening or an adventurous palate!",
+    "status": true,
+    "category": 5,
+    "created_at": "2025-07-27T04:57:43Z",
+    "blog_image": "photos/blogs/Nepalese-Dal-Bhat-Lentil-and-Rice-Platter.webp"
+  }
+}
+]

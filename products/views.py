@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
-from .models import Category, Product
+from .models import Product
+from category.models import Category
 from carts.models import CartItem
 from carts.views import _cart_id
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -55,7 +56,7 @@ def search(request):
     Performs a search based on a keyword provided in the GET request.
     Searches for the keyword in product names or descriptions.
     """
-    products_queryset = Product.objects.none()  # Initialize to an empty QuerySet
+    products_queryset = Product.objects.none()
     
     if 'keyword' in request.GET:
         keyword = request.GET.get('keyword', '').strip()
