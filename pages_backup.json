@@ -1,0 +1,12 @@
+[
+{
+  "model": "pages.page",
+  "pk": 1,
+  "fields": {
+    "title": "About Us",
+    "slug": "about",
+    "content": "Greetings from 'The Byte & Bloom Story'! We are a dynamic duo based right here in Kathmandu. One of us brings expertise in sustainable tech innovations and smart living solutions, always keen on how technology can simplify and enrich our daily lives. The other is a passionate urban gardener and DIY enthusiast, constantly experimenting with green spaces and crafting unique home projects. Our platform is a fusion of our diverse interests, dedicated to exploring how modern technology can harmonize with natural living and creative expression. From insightful gadget reviews that prioritize eco-friendliness to practical guides on setting up your own vertical garden, we aim to inspire a balanced, tech-savvy, and nature-connected lifestyle. Join us on this journey as we cultivate ideas where bytes meet blooms!",
+    "created_at": "2025-07-19T08:54:52.517Z"
+  }
+}
+]

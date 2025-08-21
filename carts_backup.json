@@ -1,0 +1,10 @@
+[
+{
+  "model": "carts.cart",
+  "pk": 1,
+  "fields": {
+    "cart_id": "tiiu487e67o0k857ssoeosbbb05ldc69",
+    "date_added": "2025-08-18"
+  }
+}
+]

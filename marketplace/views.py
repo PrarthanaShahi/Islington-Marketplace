@@ -1,26 +1,23 @@
 from django.shortcuts import render
-from products.models import Category, Product
-# from blogs.models import Blog
-# from pages.models import Page
+from store.models import Product
+from banner.models import Banner
+from category.models import Category
+
 
 def home(request):
-    # Retrieve all products that are active (status=True)
-    products = Product.objects.all().filter(status=True) 
-
-    # # Retrieve all blogs (no status filter applied here)
-    # blogs = Blog.objects.all()[:3] 
+    products = Product.objects.all().filter(status=True, is_approved=True)
+    banners = Banner.objects.all().filter(status = True)
+    categories = Category.objects.all().filter(status=True)
     
-    # # Retrieve all pages (no status filter applied here)
-    # pages = Page.objects.all() 
-    
-    # Retrieve all categories that are active (status=True)
-    categories = Category.objects.all().filter(status=True) 
-
     context = {
         'products': products,
-        # 'blogs': blogs,
-        # 'pages': pages,
+        'banners': banners,
         'categories': categories
     }
-
     return render(request, 'home/home.html', context)
+
+
+def order_complete(request):
+    return render(request, 'cart/order_complete.html')
+
+

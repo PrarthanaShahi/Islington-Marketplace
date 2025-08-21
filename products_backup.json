@@ -1,0 +1,122 @@
+[
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "Samsung Galaxy Watch 7 Pro",
+    "slug": "samsung-galaxy-watch-7-pro",
+    "price": 49999.0,
+    "description": "A high-tech smartwatch with advanced fitness tracking and a sleek design.",
+    "stock": 10,
+    "status": true,
+    "category": 1,
+    "created_at": "2025-08-18T15:49:02.642Z",
+    "product_image": "photos/products/global-wearable-W7_40mm_Green_SportBand_S_M_Green_Right-542544481.avif"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "20000mAh Portable Power Bank",
+    "slug": "20000mah-portable-power-bank",
+    "price": 3900.0,
+    "description": "A high-capacity power bank to charge your devices on the go.",
+    "stock": 25,
+    "status": true,
+    "category": 1,
+    "created_at": "2025-08-18T15:50:09.637Z",
+    "product_image": "photos/products/anker-power-bank-20000mah-portable-charger-default.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Vintage Denim Jacket",
+    "slug": "vintage-denim-jacket",
+    "price": 3200.0,
+    "description": "A classic denim jacket with a timeless style.",
+    "stock": 8,
+    "status": true,
+    "category": 2,
+    "created_at": "2025-08-18T15:51:51.015Z",
+    "product_image": "photos/products/orslow-1960s-type3-denim-jacket-vintage-wash-two-year_1.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "Hand-Crocheted Winter Scarf",
+    "slug": "hand-crocheted-winter-scarf",
+    "price": 3200.0,
+    "description": "A cozy, hand-knitted scarf, perfect for the winter season.",
+    "stock": 15,
+    "status": true,
+    "category": 2,
+    "created_at": "2025-08-18T15:53:59.975Z",
+    "product_image": "photos/products/il_fullxfull.3073670671_e2fq.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Eco-Friendly Bamboo Dish Drying Rack",
+    "slug": "eco-friendly-bamboo-dish-drying-rack",
+    "price": 1550.0,
+    "description": "A stylish and sustainable bamboo rack for drying dishes.",
+    "stock": 30,
+    "status": true,
+    "category": 3,
+    "created_at": "2025-08-18T15:55:11.787Z",
+    "product_image": "photos/products/81YkUnATIlL._UF10001000_QL80_.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Smart Coffee Maker with Timer",
+    "slug": "smart-coffee-maker-with-timer",
+    "price": 9900.0,
+    "description": "A modern coffee machine with a programmable timer for fresh coffee anytime",
+    "stock": 12,
+    "status": true,
+    "category": 3,
+    "created_at": "2025-08-18T15:56:26.083Z",
+    "product_image": "photos/products/61r7bwJBHqL._AC_SL1500__1.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "The Alchemist by Paulo Coelho",
+    "slug": "the-alchemist-by-paulo-coelho",
+    "price": 1200.0,
+    "description": "A novel about a shepherd boy who embarks on a journey to find a great treasure.",
+    "stock": 50,
+    "status": true,
+    "category": 4,
+    "created_at": "2025-08-18T15:57:31.075Z",
+    "product_image": "photos/products/f9681eed05f03f382b12fb63eb266d25.jpg_720x720q80.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Think Like a Monk by Jay Shetty",
+    "slug": "think-like-a-monk-by-jay-shetty",
+    "price": 1350.0,
+    "description": "A guide on how to overcome negative thoughts and find peace, purpose, and balance.",
+    "stock": 20,
+    "status": true,
+    "category": 4,
+    "created_at": "2025-08-18T15:59:03.704Z",
+    "product_image": "photos/products/98c146c8cbdb0d1b69e047872a0bccba.jpg"
+  }
+}
+]

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,21 +10,25 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Islington MarketPlace</title>
-    <meta name="description" content="Islington MarketPlace">
-    <meta name="keywords" content="Islington MarketPlace, Islington">
+    <title>{{site_setting.site_title}}</title>
+    <meta name="description" content="{{ site_setting.meta_description }}">
+    <meta name="keywords" content="{{ site_setting.meta_keywords }}">
 
-    <!-- Open Graph for social media -->
-    <meta property="og:title" content="Islington MarketPlace">
-    <meta property="og:description" content="Islington MarketPlace">
-    <meta property="og:image" content="{% static 'images/logos/logos.PNG' %}" />
-    
-    <!-- Favicon -->
+    {% if site_setting.logo %}
+    <meta property="og:image" content="{{ site_setting.logo.url }}">
+    {% endif %}
+
+    {% if site_setting.favicon %}
     <link
-      href="{% static 'images/favicons/favicons.ico' %}"
+      href="{{site_setting.favicon.url}}"
       rel="shortcut icon"
       type="image/x-icon"
     />
+    {%endif%}
+
+    <!-- Open Graph for social media -->
+    <meta property="og:title" content="{{ site_setting.site_title }}">
+    <meta property="og:description" content="{{ site_setting.meta_description }}">
 
     <!-- jQuery -->
     <script
@@ -50,6 +54,12 @@
       rel="stylesheet"
     />
 
+    {% comment %} <link
+      href="{% static 'css/custom.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    /> {% endcomment %}
+
     <!-- custom style -->
     <link href="{% static 'css/ui.css' %}" rel="stylesheet" type="text/css" />
     <link
@@ -63,21 +73,20 @@
 
     <script type="text/javascript">
       /// some script
+
+      // jquery ready start
       $(document).ready(function () {
         // jQuery code
       });
+      // jquery end
     </script>
   </head>
   <body>
-    <!-- CSRF Token for security -->
-    {% csrf_token %}
-    
     {% include 'includes/navbar.html' %}
-    
+    {% include 'includes/alerts.html' %}  {# <-- Show flash alerts here #}
     {% block content %}
-    <!-- Page Specific Content will go here -->
-    {% endblock %}
-    
+    {% comment %} Page Specific Content will go here {% endcomment %}
+    {% endblock %} 
     {% include 'includes/footer.html' %}
   </body>
 </html>

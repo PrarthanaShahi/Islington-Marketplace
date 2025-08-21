@@ -46,12 +46,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "products.apps.ProductsConfig",
+    "store.apps.StoreConfig",
     "blogs.apps.BlogsConfig",
     "pages.apps.PagesConfig",
     "sitesetting.apps.SitesettingConfig",
     "carts.apps.CartsConfig",
     "category.apps.CategoryConfig",
+    "accounts.apps.AccountsConfig",
+    "banner.apps.BannerConfig",
 ]
 
 MIDDLEWARE = [
@@ -80,13 +82,15 @@ TEMPLATES = [
                 "pages.context_processors.pages_links",
                 "sitesetting.context_processors.site_settings",
                 "carts.context_processors.counter",
-                "products.context_processors.menu_links",
+                "category.context_processors.menu_links",
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = "marketplace.wsgi.application"
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database

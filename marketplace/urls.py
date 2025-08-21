@@ -1,3 +1,19 @@
+"""
+URL configuration for marketplace project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -7,22 +23,13 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('products/', include('products.urls')),
-    path('blogs/', include('blogs.urls')),
-    path('pages/', include('pages.urls')),
-    # path('login/', views.user_login, name='user_login'),
-    # path('register/', views.user_register, name='user_register'),
-    # path('dashboard/', views.user_dashboard, name='user_dashboard'),
+    path('store/', include('store.urls')),
+    path('accounts/', include('accounts.urls')),
+    # path('messages/', include('message.urls')),
     path('cart/', include('carts.urls')),
-    # path('checkout/', views.checkout, name='checkout'),
-    # path('place-order/', views.place_order, name='place_order'),
-    # path('order-complete/', views.order_complete, name='order_complete'),
-    # path('my-orders/', views.my_orders, name='my_orders'),
-    # path('edit-profile/', views.edit_profile, name='edit_profile'),
-    # path('change-password/', views.change_password, name='change_password'),
-    # path('')
 ]
 
-# This is the crucial part that enables Django's development server to serve uploaded media files.
+
 if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

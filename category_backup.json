@@ -1,0 +1,54 @@
+[
+{
+  "model": "category.category",
+  "pk": 1,
+  "fields": {
+    "category_name": "Electronics",
+    "slug": "electronics",
+    "description": "Gadgets and consumer technology, including smartwatches, power banks, and small appliances.",
+    "category_image": "",
+    "created_date": "2025-08-18T15:44:45.981Z",
+    "updated_date": "2025-08-18T15:44:45.981Z",
+    "status": true
+  }
+},
+{
+  "model": "category.category",
+  "pk": 2,
+  "fields": {
+    "category_name": "Fashion",
+    "slug": "fashion",
+    "description": "Apparel and accessories, such as clothing, jackets, and scarves.",
+    "category_image": "",
+    "created_date": "2025-08-18T15:45:26.033Z",
+    "updated_date": "2025-08-18T15:45:26.033Z",
+    "status": true
+  }
+},
+{
+  "model": "category.category",
+  "pk": 3,
+  "fields": {
+    "category_name": "Home Goods",
+    "slug": "home-goods",
+    "description": "Items for home organization and decor, like kitchen accessories and furniture.",
+    "category_image": "",
+    "created_date": "2025-08-18T15:45:52.415Z",
+    "updated_date": "2025-08-18T15:45:52.415Z",
+    "status": true
+  }
+},
+{
+  "model": "category.category",
+  "pk": 4,
+  "fields": {
+    "category_name": "Books",
+    "slug": "books",
+    "description": "A collection of fiction and non-fiction books",
+    "category_image": "",
+    "created_date": "2025-08-18T15:46:13.646Z",
+    "updated_date": "2025-08-18T15:46:13.646Z",
+    "status": true
+  }
+}
+]

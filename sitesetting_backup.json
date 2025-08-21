@@ -1,0 +1,24 @@
+[
+{
+  "model": "sitesetting.sitesetting",
+  "pk": 1,
+  "fields": {
+    "site_title": "Marketplace",
+    "meta_description": "This is logo",
+    "meta_keywords": "online-shopping, user-friendly",
+    "logo": "photos/logos/logos.PNG",
+    "favicon": "photos/favicons/favicon.png"
+  }
+},
+{
+  "model": "sitesetting.sitesetting",
+  "pk": 2,
+  "fields": {
+    "site_title": "Marketplace",
+    "meta_description": "",
+    "meta_keywords": null,
+    "logo": "photos/logos/unnamed.png",
+    "favicon": ""
+  }
+}
+]
