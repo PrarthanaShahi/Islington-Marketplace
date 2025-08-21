@@ -28,34 +28,6 @@
               <p>{{product.description}}</p>
 
               <hr />
-              <!-- Color -->
-              <div class="row">
-                <div class="item-option-select">
-                  <h6>Choose Color</h6>
-                  <select name="color" class="form-control" required>
-                    <option value="" disabled selected>Select</option>
-                    {% comment %} set.all brings all data from variation model {% endcomment %}
-                    {%for i in product.variation_set.colors%}
-                    <option value="{{ i.variation_value  | lower}}">{{i.variation_value | capfirst}}</option>
-                    {%endfor%}
-                  </select>
-                </div>
-              </div>
-
-              <!-- Size.// -->
-              <div class="row">
-                <div class="item-option-select">
-                  <h6>Select Size</h6>
-                  <select name="size" class="form-control">
-                    <option value="" disabled selected>Select</option>
-                    {%for i in product.variation_set.sizes%}
-                    <option value="{{ i.variation_value | lower }}">{{i.variation_value | capfirst}}</option>
-                    {%endfor%}
-                  </select>
-                </div>
-              </div>
-              <!-- row.// -->
-              <hr />
               {% comment %} {%include 'store/includes/product_buttons.html'%} {% endcomment %}
               {%include 'store/includes/new_buttons.html'%}
             </article>
