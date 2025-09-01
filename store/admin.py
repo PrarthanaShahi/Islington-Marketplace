@@ -23,9 +23,14 @@ class VariationAdmin(admin.ModelAdmin):
     list_display = ('product','variation_category','variation_value', 'is_active')
     list_editable = ('is_active',) # approve directly from the list
     list_filter = ('product','variation_category','variation_value')
+    
+from django.contrib import admin
+from .models import Message
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('sender', 'product', 'subject', 'is_read', 'created_at')
+    search_fields = ('sender__username', 'subject', 'body', 'product__name')
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Variation, VariationAdmin)
-
-
-

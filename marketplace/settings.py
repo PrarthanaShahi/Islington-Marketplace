@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "category.apps.CategoryConfig",
     "accounts.apps.AccountsConfig",
     "banner.apps.BannerConfig",
+    "orders.apps.OrdersConfig",
 ]
 
 MIDDLEWARE = [
@@ -166,3 +167,24 @@ CSRF_TRUSTED_ORIGINS = [
     'https://prarthanashahi.com.np',
     'https://www.prarthanashahi.com.np',
 ]
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
+
+#for ESEWA
+ESEWA_PRODUCT_CODE = "EPAYTEST"
+ESEWA_SECRET_KEY = "8gBm/:&EnhH.1/q"
+ESEWA_FORM_URL = "https://rc-epay.esewa.com.np/api/epay/main/v2/form"
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'shahiprarthana100@gmail.com'
+EMAIL_HOST_PASSWORD = 'veqo umwq tcju ppxb'
+EMAIL_USE_TLS = True

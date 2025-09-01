@@ -2,6 +2,7 @@ from django.db import models
 from category.models import Category
 from django.urls import reverse
 from django.conf import settings
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Product(models.Model):
@@ -63,3 +64,28 @@ class Variation(models.Model):
         return self.variation_value
     
     
+class StockRequest(models.Model):
+    product = models.ForeignKey('store.Product', on_delete=models.CASCADE)  
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    message = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user} requested {self.product}"
+    
+    
+class Message(models.Model):
+    sender = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='sent_messages', on_delete=models.CASCADE
+    )
+    product = models.ForeignKey('store.Product', on_delete=models.CASCADE, null=True, blank=True)
+    subject = models.CharField(max_length=255, blank=True)
+    body = models.TextField()
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        sender_name = getattr(self.sender, 'username', str(self.sender))
+        if self.product:
+            return f"Message from {sender_name} about {self.product}"
+        return f"Message from {sender_name}"

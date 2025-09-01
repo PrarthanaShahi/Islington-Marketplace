@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title mb-4">Billing Address</h4>
-            <form action="#" method="POST">
+            <form action="{%url 'place_order'%}" method="POST">
               {%csrf_token%}
               <div class="form-row">
                 <div class="col form-group">
@@ -17,7 +17,6 @@
                     type="text"
                     name="first_name"
                     class="form-control"
-                    value="Samik"
                     required=""
                   />
                   <div
@@ -36,7 +35,6 @@
                     type="text"
                     name="last_name"
                     class="form-control"
-                    value="Duke"
                     required=""
                   />
                 </div>
@@ -48,7 +46,6 @@
                     type="email"
                     name="email"
                     class="form-control"
-                    value="samikduke@gmail.com"
                     required=""
                   />
                 </div>
@@ -58,7 +55,6 @@
                     type="text"
                     name="phone"
                     class="form-control"
-                    value="9822321123"
                     required=""
                   />
                 </div>
@@ -190,6 +186,7 @@
             >
               Place Order
             </button>
+            
             <a href="{%url 'store'%}" class="btn btn-light btn-block"
               >Continue Shopping</a
             >

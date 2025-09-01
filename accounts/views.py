@@ -12,6 +12,7 @@ from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.models import F
 from carts.models import Cart, CartItem
+from orders.models import *
 # Password change
 from . forms import CustomPasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
@@ -25,6 +26,8 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 
 from carts.views import _cart_id
+from django.template import RequestContext
+
 
 def user_login(request):
     if request.method == "POST":
@@ -117,9 +120,9 @@ def user_register(request):
             
             # User Activation
             current_site = get_current_site(request)
-            mail_subject = 'Please Activate your account'
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = default_token_generator.make_token(user)
+            mail_subject = 'Please Activate your account'
             message = render_to_string('accounts/verification/account_verification.html', {
                 'user': user,
                 'domain': current_site,
@@ -298,3 +301,59 @@ def change_password(request):
     else:
         form = CustomPasswordChangeForm(request.user)
     return render(request, 'accounts/change_password.html', {'form': form})
+
+
+
+@login_required(login_url='user_login')
+def my_order(request):
+    orders = Order.objects.filter(user=request.user, is_ordered=True).order_by('-created_at')
+    context ={
+        'order': orders
+    } 
+    return(request,'accounts/orders/my_orders.html', context)
+
+
+def my_sales(request):
+    data =(
+        OrderProduct.objects
+        .filter(product__owner=request.user, order__is_ordered = True)
+        .select_related('order','product','user')
+        .prefetch_related('variations')
+        .order_by('-created_At')
+    )
+    context ={
+        'data': data
+    }
+    return render(request,'accounts/orders/my_sales.html',context)
+
+
+@login_required(login_url='user_login')
+def order_detail(request, order_id):
+    user = request.user
+    
+    buyer_qs = Order.objects.filter(order_number=order_id, user=user)
+    
+    
+    seller_qs = Order.objects.filter(
+        order_number = order_id,
+        orderproduct__product__owner = user
+
+    )
+    order =(buyer_qs | seller_qs).distinct().first()
+    
+    if not order:
+        return render(request,'master/404.html',status=404)
+    
+    
+    order_detail = OrderProduct.objects.filter(order=order)
+    subtotal = 0 
+    
+    for i in order_detail:
+        subtotal += i.product_price * i.quantity
+        
+    context ={
+        'order_detail':order_detail,
+        'order':order,
+        'subtotal':subtotal
+    }
+    return render(request, 'accounts/orders/order_detail.html',context)

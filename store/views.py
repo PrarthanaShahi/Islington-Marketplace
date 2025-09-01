@@ -12,6 +12,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from . forms import ContactSellerForm
+from .models import Product, StockRequest,  Message
 
 def store(request, category_slug=None):
     categories = None
@@ -170,3 +171,18 @@ def message_seller(request, user_id):
         form = ContactSellerForm()
 
     return render(request, "messages/message_seller.html", {"seller": seller, "form": form})
+
+
+
+def request_stock(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if request.method == "POST":
+        message = request.POST.get("message", "").strip()
+        StockRequest.objects.create(product=product, user=request.user, message=message)
+        messages.success(request, "Your restock request has been submitted. We'll notify you when it's available.")
+        # redirect back to same product detail — adapt path name to your URL conf:
+        try:
+            return redirect('product_detail', category_slug=product.category.category_slug, product_slug=product.slug)
+        except Exception:
+            return redirect('product_detail', category_slug=product.category.slug, product_slug=product.slug)
+    return redirect('product_detail', category_slug=product.category.slug, product_slug=product.slug)
